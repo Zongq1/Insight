@@ -1,0 +1,72 @@
+[tool.poetry]
+name = "insight-backend"
+version = "0.1.0"
+description = "Project Insight Backend - Multi-Agent Insight Engine"
+authors = ["Insight Team"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.109.0"
+uvicorn = {extras = ["standard"], version = "^0.27.0"}
+pydantic = "^2.5.0"
+pydantic-settings = "^2.1.0"
+instructor = "^1.2.0"
+openai = "^1.12.0"
+anthropic = "^0.18.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
+asyncpg = "^0.31.0"
+alembic = "^1.13.0"
+celery = {extras = ["redis"], version = "^5.3.6"}
+redis = "^5.0.1"
+chromadb = "^0.4.22"
+httpx = "^0.26.0"
+beautifulsoup4 = "^4.12.0"
+newspaper3k = "^0.2.8"
+langgraph = "^0.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-asyncio = "^0.23.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+ruff = "^0.1.0"
+mypy = "^1.8.0"
+black = "^24.1.0"
+isort = "^5.13.0"
+httpx = "^0.26.0"
+aiosqlite = "^0.19.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.isort]
+known-first-party = ["app"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+known_first_party = ["app"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --cov=app --cov-report=term-missing"

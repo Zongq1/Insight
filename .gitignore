@@ -1,0 +1,48 @@
+# ===== Secrets =====
+.env
+.env.local
+*.key
+*.pem
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+dist/
+build/
+*.egg-info/
+
+# ===== Poetry =====
+# poetry.lock 保留，锁定依赖版本
+
+# ===== Vector DB =====
+backend/chroma_data/
+
+# ===== Android =====
+android/local.properties
+android/.gradle/
+android/app/build/
+android/build/
+*.apk
+*.aab
+
+# ===== Claude Code =====
+.claude/settings.local.json
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.iml
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Reference zip =====
+*.zip
+TrendRadar/
